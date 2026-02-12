@@ -68,7 +68,7 @@ export const Architecture: React.FC = () => {
             className="mt-24 border-t border-black/20 pt-8"
         >
             <div className="font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-black/50 mb-4">
-                > DEEP_DPI_INTEGRATION_DETECTED:
+                &gt DEEP_DPI_INTEGRATION_DETECTED:
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-4 font-bold text-sm md:text-xl uppercase tracking-tighter opacity-80">
                 <span className="flex items-center gap-2"><Database size={16} /> BHASHINI (MULTILINGUAL)</span>
