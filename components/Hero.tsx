@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SideLogo } from './SideLogo';
+import { ArrowRight } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onLoginClick: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onLoginClick }) => {
   return (
     <section className="relative min-h-screen bg-white flex flex-col justify-center px-6 md:px-12 pt-24 overflow-hidden border-b border-black">
       <div className="z-10 w-full max-w-7xl mx-auto">
@@ -15,7 +20,7 @@ export const Hero: React.FC = () => {
           <h1 className="text-[10vw] md:text-[9vw] leading-[0.85] font-black tracking-tighter uppercase text-black break-words">
             From <br />
             <span className="relative inline-block">
-              Hallucination
+              Certification
               <motion.span
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
@@ -25,11 +30,29 @@ export const Hero: React.FC = () => {
               />
             </span>
             <br />
-            To Application.
+            To Contribution.
           </h1>
-          <div className="mt-8 font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-black max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            Sovereign Innovation for Distributed Excellence. <br/>Not a course. An apprenticeship for the nation.
+          
+          <div className="mt-8 flex flex-col items-start gap-8">
+            <div className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-black max-w-md">
+                Sovereign Innovation for Distributed Excellence. <br/>Not a course. An apprenticeship for the nation.
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+                <button 
+                    onClick={onLoginClick}
+                    className="bg-black text-white px-8 py-4 font-mono text-xs md:text-sm uppercase tracking-widest font-bold hover:bg-green-500 hover:text-black transition-colors duration-300 flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]"
+                >
+                    [ Login to Node ] <ArrowRight size={16} />
+                </button>
+                <button 
+                    className="border-2 border-black text-black px-8 py-4 font-mono text-xs md:text-sm uppercase tracking-widest font-bold hover:bg-black hover:text-white transition-colors duration-300"
+                >
+                    Register Identity
+                </button>
+            </div>
           </div>
+
         </motion.div>
       </div>
       

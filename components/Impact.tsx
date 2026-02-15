@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, School, Landmark } from 'lucide-react';
+import { User, School, Landmark, Building2, Users } from 'lucide-react';
 
 export const Impact: React.FC = () => {
   const stakeholders = [
@@ -8,19 +8,31 @@ export const Impact: React.FC = () => {
       icon: <User size={32} />,
       role: "The Student",
       benefit: "Sovereign Portfolio",
-      desc: "Moves from a static GPA to a dynamic 'Proof of Work' ledger. They don't just graduate; they launch with a verified history of solving civic problems."
+      desc: "Moves from static grades to a dynamic 'Proof of Work' ledger. Graduates with a verified history of solving real-world civic problems, making them instantly employable."
     },
     {
       icon: <School size={32} />,
-      role: "The Institution",
+      role: "The College",
       benefit: "Accreditation Boost",
-      desc: "Direct compliance with NEP 2020 'Community Engagement' mandates. Higher NIRF rankings through verifiable social impact metrics."
+      desc: "Achieves NEP 2020 'Community Engagement' mandates instantly. Boosts NIRF rankings by deploying student talent into local governance structures."
+    },
+    {
+      icon: <Building2 size={32} />,
+      role: "The Bureaucrat",
+      benefit: "Decentralized R&D",
+      desc: "District Magistrates gain a zero-cost innovation wing. Students solve hyperlocal grievances (traffic, sanitation) that official machinery lacks manpower for."
     },
     {
       icon: <Landmark size={32} />,
-      role: "The Government",
-      benefit: "Real-Time Intelligence",
-      desc: "District Collectors get a dashboard of hyperlocal problems being identified and solved by the youth, creating a decentralized R&D wing for the state."
+      role: "The Ministry",
+      benefit: "Sovereign AI Asset",
+      desc: "Real-time national dashboard of youth capability. Transforms the demographic dividend from a statistic into a calculated, deployable asset."
+    },
+    {
+      icon: <Users size={32} />,
+      role: "The Public",
+      benefit: "Radical Service Delivery",
+      desc: "Citizens see problems solved faster. The gap between tax paid and service delivered is bridged by the very students living in their neighborhood."
     }
   ];
 
@@ -31,22 +43,22 @@ export const Impact: React.FC = () => {
           The Value Transfer.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
           {stakeholders.map((s, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
+              transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="border border-white/20 p-8 hover:bg-white/5 transition-colors group"
+              className={`bg-black p-8 hover:bg-white/5 transition-colors group border border-white/5 ${i === 3 ? 'lg:col-start-1 lg:col-end-2' : ''} ${i === 4 ? 'lg:col-start-2 lg:col-end-4' : ''}`}
             >
               <div className="mb-6 opacity-50 group-hover:opacity-100 group-hover:text-green-400 transition-all">
                 {s.icon}
               </div>
               <div className="font-mono text-xs tracking-widest uppercase opacity-50 mb-2">{s.role}</div>
               <h3 className="text-xl font-bold uppercase mb-4">{s.benefit}</h3>
-              <p className="font-mono text-xs opacity-60 leading-relaxed">
+              <p className="font-mono text-xs opacity-60 leading-relaxed group-hover:opacity-90 transition-opacity">
                 {s.desc}
               </p>
             </motion.div>
